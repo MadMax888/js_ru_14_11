@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ArticleComment from './ArticleComment'
 
 class Article extends Component {
 
@@ -9,19 +10,20 @@ class Article extends Component {
             obj: { foo: 'bar' }
         }
     }
-
     render() {
         const { article } = this.props
         const body = this.state.isOpen ? <p>{article.text}</p> : null
+        // console.log(article.comments);
         return (
             <section>
                 <h3 onClick = {this.handleClick}>{article.title}</h3>
                 {body}
+                {this.state.isOpen ? <ArticleComment comments={article.comments}/> : null}
             </section>
         )
     }
 
-    handleClick = ev => {
+    handleClick = (ev) => {
         this.setState({
             isOpen: !this.state.isOpen
         })
