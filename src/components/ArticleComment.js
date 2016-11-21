@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-
+//неудачное название, ведь это список, сделай множественное число
 class ArticleComment extends Component {
 
     constructor() {
         super()
         this.state = {
+            //аналогично проблема с названием - ведь это состояние не только на линк влияет
             isOpenLink: false,
         }
     }
