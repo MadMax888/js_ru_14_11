@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import CommentList from './CommentList'
 
 function Article(props) {
-    const { article, toggleOpen } = props
+    const { article, toggleOpen ,openArticleId} = props
+
     return (
         <section>
             <h3 onClick = {toggleOpen}>{article.title}</h3>
@@ -20,7 +21,7 @@ Article.propTypes = {
 }
 
 function getBody(props) {
-    const { article, isOpen } = props
+    const { article, isOpen} = props
     if (!isOpen) return null
     return (
         <div>
