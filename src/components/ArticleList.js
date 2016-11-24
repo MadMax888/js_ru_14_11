@@ -1,6 +1,6 @@
 import React, { Component, PropTypes }  from 'react'
 import Article from './Article'
-import AccordionArticles from '../decorators/accordionArticles'
+import Accordion from '../decorators/accordion'
 
 class ArticleList extends Component {
     static propTypes = {
@@ -10,13 +10,13 @@ class ArticleList extends Component {
     }
 
     render() {
-        const { articles, openArticleId, openArticle } = this.props
+        const { articles, openItemId, openItem } = this.props
         const articleItems = articles.map(article => (
             <li key = {article.id}>
                 <Article
                     article = {article}
-                    isOpen = {article.id == openArticleId}
-                    toggleOpen = {openArticle(article.id)}
+                    isOpen = {article.id == openItemId}
+                    toggleOpen = {openItem(article.id)}
                 />
             </li>
         ))
@@ -30,4 +30,4 @@ class ArticleList extends Component {
 
 }
 
-export default AccordionArticles(ArticleList)
+export default Accordion(ArticleList)

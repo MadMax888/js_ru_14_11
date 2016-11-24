@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default (Component) => class AccordionArticles extends React.Component { // ???
+export default (Component) => class Accordion extends React.Component { // ???
 		// constructor() {  // ES6 set default state
 		// 		super()
 		// 		this.state = {
@@ -9,18 +9,18 @@ export default (Component) => class AccordionArticles extends React.Component { 
 		// }
 		state = { // ES7 set default state
 				//не привязывайся к названиям сущностей в декораторах, вся их суть в том, чтобы использовать с разными компонентами и данными. Сделай openItemId
-				openArticleId: null
+				openItemId: null
 		}
 
 
     render() {
-        return <Component {...this.props} {...this.state} openArticle = {this.openArticle}/>
+        return <Component {...this.props} {...this.state} openItem = {this.openItem}/>
     }
 
-		openArticle = (id) => ev => { // карринг
-        const { openArticleId } = this.state
+		openItem = (id) => ev => { // карринг
+        const { openItemId } = this.state
         this.setState({
-            openArticleId: (openArticleId !== id) ? id : null
+            openItemId: (openItemId !== id) ? id : null
         })
     }
 
