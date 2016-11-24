@@ -32,7 +32,8 @@ function getArticleItems(props) {
     return articleItems
 }
 
-// class ArticleList extends Component { // es6 comment
+// class ArticleList extends Component { // es6 component
+//
 //     static propTypes = {
 //        articles   : PropTypes.array
 //       ,openItemId : PropTypes.string
@@ -57,7 +58,6 @@ function getArticleItems(props) {
 //             </ul>
 //         )
 //     }
-//
 // }
 
 export default Accordion(ArticleList)
