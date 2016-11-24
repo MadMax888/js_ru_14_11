@@ -8,7 +8,7 @@ class ArticleList extends Component {
       ,openArticleId : PropTypes.string
       ,openArticle  : PropTypes.func
     }
-    
+
     render() {
         const { articles, openArticleId, openArticle } = this.props
         const articleItems = articles.map(article => (

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import CommentList from './CommentList'
 
 function Article(props) {
-    const { article, toggleOpen ,openArticleId} = props
+    const { article, toggleOpen} = props
 
     return (
         <section>

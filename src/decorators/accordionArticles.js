@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default (Component) => class AccordionArticles extends React.Component {
+export default (Component) => class AccordionArticles extends React.Component { // ???
 		// constructor() {  // ES6 set default state
 		// 		super()
 		// 		this.state = {
