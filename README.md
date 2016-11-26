@@ -8,3 +8,7 @@
 
 ##HT3.1: добавить календарь(https://github.com/gpbl/react-day-picker) с возможностью выбора промежутка дат. Показывать этот промежуток текстом
 ##HT3.2: Добвать в CommentList форму для добавления коммента
+##HT3 Доп ссылки
+### https://react.rocks/
+### https://github.com/webpack/css-loader
+### https://github.com/gpbl/react-day-picker
