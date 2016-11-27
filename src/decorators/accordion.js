@@ -9,11 +9,11 @@ export default (Component) => class AccordionDecorator extends React.Component {
     }
 
     componentWillReceiveProps() {
-        //console.log('---', 'accordion receiving props')
+        console.log('---', 'accordion receiving props')
     }
 
     componentWillUpdate() {
-        ///console.log('---', 'accordion will update')
+        console.log('---', 'accordion will update')
     }
 
     render() {

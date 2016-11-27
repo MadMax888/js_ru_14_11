@@ -11,21 +11,21 @@ class ArticleList extends Component {
     }
 
     componentWillMount() {
-        console.log('---', 'mounting')
+        // console.log('---', 'mounting')
     }
 
     componentDidMount() {
-        console.log('---', 'mounted', this.containerRef)
-        console.log('---', this.refs)
+        // console.log('---', 'mounted', this.containerRef)
+        // console.log('---', this.refs)
     }
 
     componentWillReceiveProps(nexProps) {
         //console.log('isEqual', Object.keys(nexProps).every(key => nexProps[key] == this.props[key]))
-        //console.log('---', 'AL receiving props')
+        // console.log('---', 'AL receiving props')
     }
 
     componentWillUpdate() {
-        //console.log('---', 'AL will update')
+        // console.log('---', 'AL will update')
     }
 
     getContainerRef = ref => {
