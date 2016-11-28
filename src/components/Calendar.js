@@ -11,7 +11,7 @@ class Calendar extends Component {
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
   }
-
+	//Зачем тебе это?
 	static propTypes = {
      range : PropTypes.object.isRequired
     ,from : PropTypes.string.isRequired
