@@ -1,14 +1,28 @@
 import { OPTIONS_SELECTED } from '../constants'
+import { OPTIONS_ALL } from '../constants'
 
-export default (optionsState = [], action) => {
+const initState = {
+  optSelected: [],
+  optionsFull: []
+}
+export default (state = initState, action) => {
     const { type, payload } = action
 		// console.log()
     switch (type) {
         case OPTIONS_SELECTED:
           // console.log("optionsState" + optionsState)
-					// return unique(optionsState.concat(payload.arSelected))
-					return payload.arSelected
+          return  Object.assign({}, state, {
+              optSelected : payload.arSelected
+            })
+				case OPTIONS_ALL:
+				    // console.log("payload.articles-- " + payload.articles)
+          return  Object.assign({}, state, {
+              optionsFull : payload.articles.map(article => ({
+              	            label: article.title,
+              	            value: article.id
+    	                  }))
+            })
     }
 
-    return optionsState
+    return state
 }

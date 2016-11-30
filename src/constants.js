@@ -1,3 +1,5 @@
 export const DELETE_ARTICLE = 'DELETE_ARTICLE'
 export const INCREMENT = 'INCREMENT'
 export const OPTIONS_SELECTED = 'OPTIONS_SELECTED'
+export const OPTIONS_ALL = 'OPTIONS_ALL'
+export const DAY_RANGE = 'DAY_RANGE'

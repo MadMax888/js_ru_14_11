@@ -35,8 +35,10 @@ class ArticleList extends Component {
 
 
     render() {
-        const { articles, isOpen, toggleOpenItem } = this.props
-
+        const { articles, isOpen, toggleOpenItem, from, to, optionsSelected } = this.props
+        console.log("ARL from -- " + from)
+        console.log("ARL to -- "+ to)
+        console.log("ARL optionsSelected -- " + optionsSelected  )
         const articleItems = articles.map(article => (
             <li key = {article.id}>
                 <Article
@@ -57,4 +59,7 @@ class ArticleList extends Component {
 
 export default connect(state => ({
     articles: state.articles
+    ,from: state.date.from
+    ,to: state.date.to
+    ,optionsSelected: state.options.optSelected
 }))(accordion(ArticleList))

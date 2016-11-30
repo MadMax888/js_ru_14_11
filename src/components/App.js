@@ -4,25 +4,19 @@ import Select from 'react-select'
 import Chart from './Chart'
 import DateRange from './DateRange'
 import Counter from './Counter'
-import { refreshOptionsSelected } from '../AC/options'
+import { refreshOptionsSelected, optionsAll } from '../AC/options'
 import { connect } from 'react-redux'
 import 'react-select/dist/react-select.css'
 
 class App extends Component {
 
-    // state = {
-    //     selected: null
-    // }
-    componentDidUpdate() {
-      // console.log("mounted app");
-    }
-    checkOptionSelected() {
 
-    }
 
     render() {
-        const { articles, optSelected } = this.props
+        const { articles, optSelected, optionsFull, optionsAll} = this.props
 
+        // Не понимаю как и где вызывать AC optionsAll, чтоб бы формировать options(30ст)
+        // в редьюсере
         const options = articles.map(article => ({
             label: article.title,
             value: article.id
@@ -38,7 +32,6 @@ class App extends Component {
         )
     }
 
-    // handleChange = selected => this.setState({ selected })
 
     handleChange = selected => {
       // console.log('selected---' + selected);
@@ -50,9 +43,11 @@ class App extends Component {
 
 export default connect(state => ({
      articles: state.articles
-    ,optSelected: state.optSelected
+    ,optSelected: state.options.optSelected
+    ,optionsFull: state.options.optionsFull
   }),
   {
-    refreshOptionsSelected
+    refreshOptionsSelected,
+    optionsAll
   }
   )(App)
