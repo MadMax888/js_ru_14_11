@@ -32,14 +32,35 @@ class ArticleList extends Component {
     getContainerRef = ref => {
         this.containerRef = ref
     }
+    filterArticles () {
+      const { articles, from, to, optionsSelected } = this.props
+      let filterArticles = articles.filter((article) => {
+            for( let opt of optionsSelected) {
+              if (article.id === opt.value) {
+                if ( from == null && to == null ) {
+                  return true
+                } else if (from != null && to == null) {
+                    if ( Date.parse(from) >= Date.parse(article.date)) return true
+                } else if ( from != null && to != null) {
+                  if ( Date.parse(from) >= Date.parse(article.date)
+                      && Date.parse(article.date) <= Date.parse(to)) return true
+                }
+              }
+            }
+            return false
+      })
 
+      return filterArticles
+    }
 
     render() {
         const { articles, isOpen, toggleOpenItem, from, to, optionsSelected } = this.props
-        console.log("ARL from -- " + from)
-        console.log("ARL to -- "+ to)
-        console.log("ARL optionsSelected -- " + optionsSelected  )
-        const articleItems = articles.map(article => (
+
+        const filteredArticles = this.filterArticles().length <= 0
+                                  ? articles
+                                  : this.filterArticles()
+                                  
+        const articleItems =  filteredArticles.map(article => (
             <li key = {article.id}>
                 <Article
                     article = {article}
