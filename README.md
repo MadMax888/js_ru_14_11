@@ -13,3 +13,7 @@
 ##HT4.2: Реализовать фильтрацию статей
 ##HT4.3: почитать про immutable
 ##HT4.4: Скринкаст по Flux(часть 1)
+
+## http://redux.js.org/
+## https://github.com/reactjs/react-redux
+## https://facebook.github.io/immutable-js/docs/#/

@@ -4,16 +4,26 @@ import Select from 'react-select'
 import Chart from './Chart'
 import DateRange from './DateRange'
 import Counter from './Counter'
+import { refreshOptionsSelected } from '../AC/options'
+import { connect } from 'react-redux'
 import 'react-select/dist/react-select.css'
 
 class App extends Component {
 
-    state = {
-        selected: null
+    // state = {
+    //     selected: null
+    // }
+    componentDidUpdate() {
+      // console.log("mounted app");
+    }
+    checkOptionSelected() {
+
     }
 
     render() {
-        const options = [].map(article => ({
+        const { articles, optSelected } = this.props
+
+        const options = articles.map(article => ({
             label: article.title,
             value: article.id
         }))
@@ -23,12 +33,26 @@ class App extends Component {
                 <Chart />
                 <DateRange />
                 <ArticleList />
-                <Select options = {options} value = {this.state.selected} onChange = {this.handleChange} multi = {true}/>
+                <Select options = {options} value = {optSelected} onChange = {this.handleChange} multi = {true} />
             </div>
         )
     }
 
-    handleChange = selected => this.setState({ selected })
+    // handleChange = selected => this.setState({ selected })
+
+    handleChange = selected => {
+      // console.log('selected---' + selected);
+      // console.debug(selected);
+        const { refreshOptionsSelected } = this.props
+        refreshOptionsSelected(selected)
+    }
 }
 
-export default App
+export default connect(state => ({
+     articles: state.articles
+    ,optSelected: state.optSelected
+  }),
+  {
+    refreshOptionsSelected
+  }
+  )(App)
