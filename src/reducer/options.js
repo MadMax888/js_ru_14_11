@@ -5,6 +5,7 @@ const initState = {
   optSelected: [],
   optionsFull: []
 }
+//лучше эти два редюсера объеденить в один filters
 export default (state = initState, action) => {
     const { type, payload } = action
 		// console.log()
