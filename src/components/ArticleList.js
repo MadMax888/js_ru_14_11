@@ -32,6 +32,7 @@ class ArticleList extends Component {
     getContainerRef = ref => {
         this.containerRef = ref
     }
+    //лучше эту логику вынести в connect
     filterArticles () {
       const { articles, from, to, optionsSelected } = this.props
       let filterArticles = articles.filter((article) => {
