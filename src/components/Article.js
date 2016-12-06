@@ -61,6 +61,6 @@ Article.propTypes = {
 }
 
 
-export default connect(null, {
+export default connect(null, { // null для получения пропс которые передают в компонент сверху
     deleteArticle
 })(Article)

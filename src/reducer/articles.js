@@ -1,7 +1,14 @@
 import { normalizedArticles } from '../fixtures'
 import { DELETE_ARTICLE } from '../constants'
+import { Map } from 'immutable'
 
-export default (articlesState = normalizedArticles, action) => {
+const defaultArticles = normalizedArticles.reduce( (prevArticles, curArticle) => {
+    return prevArticles.set(curArticle.id, curArticle)
+  }
+  , new Map({})
+  )
+// console.log("defaultArticles IMM -- " + defaultArticles)
+export default (articlesState = defaultArticles, action) => {
     const { type, payload } = action
 
     switch (type) {
