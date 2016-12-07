@@ -20,6 +20,7 @@ export default (articlesState = defaultArticles, action) => {
 
           return articlesState.map( (article, key) => {
               if (key === payload.articleId) {
+              //не мутируй данные! Мы для этого даже immutable завели
                 article.comments.push(genId)
               }
               return article
