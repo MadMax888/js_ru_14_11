@@ -20,7 +20,7 @@ export default (comments = defaultComments, action) => {
         //   "text": payload.text
         // }).toMap())
 
-
+        //так это не работает, но и не надо, просто comments.set(genId, {...})
         return comments.toList().push({
           "id" : genId,
           "user": payload.user,
