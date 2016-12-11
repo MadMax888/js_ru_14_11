@@ -24,6 +24,7 @@ class ArticleList extends Component {
 
     render() {
         const { articles, loading, isOpen, toggleOpenItem } = this.props
+        console.log('articles AL -- ', articles)
         if (loading) return <Loader/>
 
         const articleItems = articles.map(article => (

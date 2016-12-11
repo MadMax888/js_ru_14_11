@@ -20,7 +20,7 @@ const defaultState = new ReducerState({
 
 export default (articlesState = defaultState, action) => {
     const { type, payload, generatedId, response } = action
-
+      console.log('response AC -- ', response)
     switch (type) {
         case DELETE_ARTICLE:
             return articlesState.deleteIn(['entities', payload.articleId])
