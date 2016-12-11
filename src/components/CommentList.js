@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addComment, loadAllComments } from '../AC/comments'
+import { addComment, loadAllComments, loadArticleComments } from '../AC/comments'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
 import NewCommentForm from './NewCommentForm'
@@ -13,6 +13,7 @@ class CommentList extends Component {
         //from connect
         comments: PropTypes.array.isRequired,
         loadAllComments: PropTypes.func.isRequired,
+        loadArticleComments: PropTypes.func.isRequired,
         addComment: PropTypes.func.isRequired,
         //from toggleOpen decorator
         isOpen: PropTypes.bool.isRequired,
@@ -23,21 +24,16 @@ class CommentList extends Component {
         comments: []
     }
 
-    componentDidMount () {
-      const { loadAllComments, isOpen } = this.props
-      // if ( isOpen ) loadAllComments()
-      // loadAllComments()
-    }
+    componentDidMount () {}
 
     componentWillReceiveProps(nextProps) {
         //console.log('---', 'CL receiving props'
-      const { loadAllComments, isOpen , comments} = this.props
+      const { loadAllComments, loadArticleComments, isOpen , comments, article} = this.props
 
-      // if (nextProps.isOpen && !isOpen && !nextProps.comments.length) {
-      console.log("AAAdsadasAA WLRP -- ", comments.length)
-      if (nextProps.isOpen && !isOpen && !comments.length) {
-        console.log("AAAdsadasAA -- ", comments)
-        loadAllComments()
+      if (nextProps.isOpen && !isOpen && !article.commentsLoading) {
+
+        loadArticleComments(article.id)
+        loadAllComments(article.id)
       }
 
     }
@@ -81,4 +77,4 @@ export default connect((state, props) => ({
       ? (props.article.comments || []).map(id => state.comments.entities.get(id))
       : []
     ,loading: state.comments.loading
-}), { addComment, loadAllComments })(toggleOpen(CommentList))
+}), { addComment, loadAllComments, loadArticleComments })(toggleOpen(CommentList))

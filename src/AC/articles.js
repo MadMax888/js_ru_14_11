@@ -1,4 +1,7 @@
-import { DELETE_ARTICLE, LOAD_ALL_ARTICLES, LOAD_ARTICLE, START, SUCCESS, FAIL } from '../constants'
+import {
+        DELETE_ARTICLE, LOAD_ALL_ARTICLES, LOAD_ARTICLE,
+        START, SUCCESS, FAIL
+       } from '../constants'
 import jquery from 'jquery'
 
 export function deleteArticle(articleId) {
