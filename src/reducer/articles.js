@@ -28,6 +28,7 @@ export default (articlesState = defaultState, action) => {
     switch (type) {
         case LOAD_ARTICLE_COMMENTS:
           console.log('LOAD_ARTICLE_COMMENTS! ----')
+          //лучше слушать LOAD_COMMENTS, незачем заводить 2 AC
           return articlesState.setIn(['entities', payload.articleId, 'commentsLoading'], true)
 
         case DELETE_ARTICLE:
