@@ -29,9 +29,9 @@ class CommentList extends Component {
     componentWillReceiveProps(nextProps) {
         //console.log('---', 'CL receiving props'
       const { loadAllComments, loadArticleComments, isOpen , comments, article} = this.props
-
+      //article лучше брать из nextProps
       if (nextProps.isOpen && !isOpen && !article.commentsLoading) {
-
+        //зачем здесь вызов 2-х AC?
         loadArticleComments(article.id)
         loadAllComments(article.id)
       }
