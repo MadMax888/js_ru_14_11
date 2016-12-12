@@ -26,7 +26,7 @@ export function loadArticleComments(articleId) {
     }
 }
 
-
+//вот это логичнее было назвать loadArticleComments, а второй AC лишний
 export function loadAllComments(id) {
     return (dispatch) => {
         dispatch({
