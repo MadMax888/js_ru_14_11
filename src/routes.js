@@ -6,6 +6,8 @@ import Filters from './RouteHandlers/Filters'
 import Counter from './RouteHandlers/Counter'
 import ArticlePage from './RouteHandlers/ArticlePage'
 import NotFound from './RouteHandlers/NotFound'
+import CommentsRoot from './RouteHandlers/CommentsRoot'
+import CommentsPage from './RouteHandlers/CommentsPage'
 
 export default (
     <Router history={browserHistory}>
@@ -15,6 +17,9 @@ export default (
                 <Route path = ":id" component={ArticlePage} />
             </Route>
             <Route path = "/filters" component={Filters} />
+            <Route path = "/comments" component={CommentsRoot} >
+              <Route path = ":limit/:offset" component={CommentsPage} />
+            </Route>
             <Route path = "*" component={NotFound} />
         </Route>
     </Router>

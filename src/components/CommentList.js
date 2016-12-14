@@ -20,9 +20,13 @@ class CommentList extends Component {
         comments: []
     }
 
+    componentDidMount() {
+      const { article, checkAndLoadComments } = this.props
+      checkAndLoadComments(article.id)
+    }
 
     componentWillReceiveProps({ isOpen, checkAndLoadComments, article}) {
-        if (isOpen && !this.props.isOpen) checkAndLoadComments(article.id)
+        // if (isOpen && !this.props.isOpen) checkAndLoadComments(article.id)
     }
 
     render() {

@@ -9,5 +9,7 @@ export function arrayToMap(arr, Model) {
 
 export const ReducerState = Record({
     entities: new Map({}),
-    loading: false
+    loading: false,
+		total: null
+
 })
