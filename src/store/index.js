@@ -7,6 +7,8 @@ import thunk from 'redux-thunk'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+// const enhancer = applyMiddleware(thunk, generateId, api, generatePaginationPages, logger)
+// const enhancer = applyMiddleware(thunk, generateId, generatePaginationPages, api, logger)
 const enhancer = applyMiddleware(thunk, generateId, api, logger)
 const store = createStore(reducer, {}, composeEnhancers(enhancer))
 

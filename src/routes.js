@@ -18,7 +18,7 @@ export default (
             </Route>
             <Route path = "/filters" component={Filters} />
             <Route path = "/comments" component={CommentsRoot} >
-              <Route path = ":limit/:offset" component={CommentsPage} />
+              <Route path = ":page/:range" component={CommentsPage} />
             </Route>
             <Route path = "*" component={NotFound} />
         </Route>

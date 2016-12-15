@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import CommentList from '../components/CommentList'
+import CommentsPaginationPage from '../components/CommentsPaginationPage'
 
 class CommentsPage extends Component {
     static propTypes = {
@@ -8,8 +8,9 @@ class CommentsPage extends Component {
 
     render() {
         return (
-					<h1>{this.props.params.limit},,,{this.props.params.offset} </h1>
-            // <Article articleId={this.props.params.id} isOpen = {true} key = {this.props.params.id}/>
+          <div>
+            <CommentsPaginationPage page={this.props.params.page} range={this.props.params.range} />
+          </div>
         )
     }
 }

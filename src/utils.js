@@ -10,6 +10,7 @@ export function arrayToMap(arr, Model) {
 export const ReducerState = Record({
     entities: new Map({}),
     loading: false,
-		total: null
-
+		total: null,
+		totalLoaded: false,
+		paginationPages: null
 })

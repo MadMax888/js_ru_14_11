@@ -11,6 +11,7 @@ export default store => next => action => {
     setTimeout(() => {
         jquery.get(callAPI)
             .done(response => {
+                console.log("GET API --", response)
                 next({...rest, response, type: type + SUCCESS})
             })
             .fail(error => {

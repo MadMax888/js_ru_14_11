@@ -1,4 +1,4 @@
-import { ADD_COMMENT, LOAD_COMMENTS, LOAD_ALL_COMMENTS, SUCCESS, START } from '../constants'
+import { ADD_COMMENT, LOAD_COMMENTS, LOAD_TOTAL_COMMENTS, LOAD_PAGINATION_COMMENTS, SUCCESS, START } from '../constants'
 import { arrayToMap, ReducerState } from '../utils'
 import { Record, Map } from 'immutable'
 
@@ -12,7 +12,7 @@ const defaultState = new ReducerState({
 })
 
 export default (comments = defaultState, action) => {
-    const { type, payload, response, error, generatedId } = action
+    const { type, payload, response, error, generatedId, paginationPages } = action
 
     switch (type) {
         case ADD_COMMENT:
@@ -21,16 +21,19 @@ export default (comments = defaultState, action) => {
         case LOAD_COMMENTS + SUCCESS:
             return comments.mergeIn(['entities'], arrayToMap(response, CommentModel))
 
-        case LOAD_ALL_COMMENTS + START:
-          console.log("Start LOAd COmments")
+        case LOAD_PAGINATION_COMMENTS + SUCCESS:
+          console.log("LOAd COmments")
           // comments.set('loading', true)
-          console.log("Start LOAd COmments", comments.toJS())
-          return comments.set('loading', true)
+          console.log("LOAd  PG COmments ", response.records)
+          return comments.setIn(['paginationPages', payload.index]).comments.concat(response.records)
+          // return comments.setIn(['paginationPages', payload.index, 'comments'], response.records)
+          //               //  .setIn(['paginationPages'], payload.index, ['loaded'], true)
 
-        case LOAD_ALL_COMMENTS + SUCCESS:
+        case LOAD_TOTAL_COMMENTS + SUCCESS:
             return comments
-                .set('entities', arrayToMap(response.records, CommentModel))
-                .set('loading', false)
+                .set('total', payload.total)
+                .set('totalLoaded', true)
+                .set('paginationPages', paginationPages)
     }
 
     return comments
