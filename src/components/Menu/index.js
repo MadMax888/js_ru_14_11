@@ -5,10 +5,15 @@ class Menu extends Component {
 
     };
 
+  static contextTypes = {
+      localization: PropTypes.object
+  }
+
     render() {
+        const { menuTitle } = this.context.localization.dictionary[this.context.localization.checkedLng]
         return (
             <div>
-                <h3>Choose menu item:</h3>
+                <h3>{menuTitle}</h3>
                 <section>
                     {this.props.children}
                 </section>

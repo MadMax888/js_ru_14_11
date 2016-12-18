@@ -57,4 +57,4 @@ export default connect(state => {
         articles: filteredArticles,
         loading: articles.loading
     }
-}, { loadAllArticles })(accordion(ArticleList))
+}, { loadAllArticles }, null, {pure: false})(accordion(ArticleList))

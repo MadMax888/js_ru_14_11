@@ -5,11 +5,16 @@ class CommentRoot extends Component {
     static propTypes = {
 
     };
+    
+    static contextTypes = {
+        localization: PropTypes.object
+    }
 
     render() {
+      const { commentsTitle } = this.context.localization.dictionary[this.context.localization.checkedLng]
         return (
             <div>
-                <h1>Comments pagination</h1>
+                <h1>{commentsTitle}</h1>
                 {this.props.children}
                 <CommentsPaginator />
             </div>

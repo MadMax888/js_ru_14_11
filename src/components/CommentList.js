@@ -23,7 +23,8 @@ class CommentList extends Component {
     static contextTypes = {
         router: PropTypes.object,
         store: PropTypes.object,
-        username: PropTypes.string
+        username: PropTypes.string,
+        localization: PropTypes.object
     }
 
 
@@ -32,9 +33,12 @@ class CommentList extends Component {
     }
 
     render() {
+        console.log('use name', this.context.username)
+        console.log('dict', this.context.localization)
+        const { userTitle } = this.context.localization.dictionary[this.context.localization.checkedLng]
         return (
             <div>
-                <h3>User: {this.context.username}</h3>
+                <h3>{userTitle}: {this.context.username}</h3>
                 {this.getButton()}
                 {this.getBody()}
             </div>
