@@ -70,6 +70,7 @@ class Root extends Component {
 
     render() {
         // Как здесь получить контекст ?
+        //Здесь ты его нет, он у тебя для дочерних елементов задается. 
         console.log('ROUT CONTEXT', this.context.username) // undefined
         console.log('ROUT LOC', this.context.localization)// undefined
 
